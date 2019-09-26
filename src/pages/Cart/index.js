@@ -1,10 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { MdRemoveCircleOutline, MdAddCircleOutline, MdDelete } from 'react-icons/md';
+
+import * as CartActions from '../../store/modules/cart/actions';
 
 import * as S from "./styles"
 
-function Cart( {cart}) {
+function Cart({ cart, removeFromCart, updateAmount }) {
+  function increment(product){
+    updateAmount(product.id, product.amount + 1);
+  }
+
+  function decrement(product){
+    updateAmount(product.id, product.amount - 1);
+  }
+
   return (
     <S.Container>
       <S.ProductTable>
@@ -32,13 +43,13 @@ function Cart( {cart}) {
               </td>
               <td>
                 <div>
-                  <button type="button">
+                  <button type="button" onClick={() => decrement(product)}>
                     <MdRemoveCircleOutline size={20} color="#7159c1" />
                   </button>
 
                   <input type="number" readOnly value={product.amount} />
 
-                  <button type="button">
+                  <button type="button" onClick={() => increment(product)}>
                     <MdAddCircleOutline size={20} color="#7159c1" />
                   </button>
                 </div>
@@ -47,7 +58,7 @@ function Cart( {cart}) {
                 <strong>R$258,80</strong>
               </td>
               <td>
-                <button type="button">
+                <button type="button" onClick={() => removeFromCart(product.id)}>
                   <MdDelete size={20} color="#7159c1" />
                 </button>
               </td>
@@ -74,4 +85,7 @@ const mapStateToProps = state => ({
   cart: state.cart,
 });
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
