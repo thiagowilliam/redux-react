@@ -6,13 +6,13 @@ export const Container = styled.div`
   background: #fff;
   border-radius: 4px;
 
-  footer{
+  footer {
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    button{
+    button {
       background: #7159c1;
       color: #fff;
       border: 0;
@@ -22,7 +22,7 @@ export const Container = styled.div`
       text-transform: uppercase;
       transition: all 0.2s;
 
-      &:hover{
+      &:hover {
         background: ${darken(0.03, '#7159c1')};
       }
     }
@@ -32,19 +32,19 @@ export const Container = styled.div`
 export const ProductTable = styled.table`
   width: 100%;
 
-  thead th{
+  thead th {
     color: #999;
     text-align: left;
     padding: 12px;
   }
 
-  tbody td{
+  tbody td {
     padding: 12px;
     border-bottom: 1px solid #eee;
     vertical-align: middle;
   }
 
-  img{
+  img {
     height: 100px;
     width: auto;
   }
@@ -54,17 +54,17 @@ export const ProductTable = styled.table`
     display: block;
   }
 
-  span{
+  span {
     display: block;
     margin-top: 5px;
     font-size: 18px;
     font-weight: bold;
   }
 
-  div{
+  div {
     display: flex;
     align-items: center;
-    input{
+    input {
       border: 1px solid #ddd;
       border-radius: 4px;
       color: #666;
@@ -73,7 +73,7 @@ export const ProductTable = styled.table`
     }
   }
 
-  button{
+  button {
     background: none;
     border: 0;
     padding: 6px;
@@ -83,12 +83,12 @@ export const ProductTable = styled.table`
 export const Total = styled.div`
   display: flex;
   align-items: baseline;
-  span{
+  span {
     color: #999;
     font-weight: bold;
   }
 
-  strong{
+  strong {
     font-size: 28px;
     margin-left: 5px;
   }

@@ -7,10 +7,9 @@ import api from '../../services/api';
 
 import * as CartActions from '../../store/modules/cart/actions';
 
-import * as S from "./styles"
+import * as S from './styles';
 
 class Home extends Component {
-
   state = {
     products: [],
   };
@@ -20,7 +19,7 @@ class Home extends Component {
 
     const data = response.data.map(product => ({
       ...product,
-      priceFormatted: formatPrice(product.price)
+      priceFormatted: formatPrice(product.price),
     }));
 
     this.setState({ products: data });
@@ -30,24 +29,22 @@ class Home extends Component {
     const { addToCart } = this.props;
 
     addToCart(product);
-
   };
 
-  render(){
-
+  render() {
     const { products } = this.state;
 
     return (
       <S.ProductList>
         {products.map(product => (
           <li key={product.id}>
-            <img
-              src={product.image}
-              alt={product.title}
-            />
+            <img src={product.image} alt={product.title} />
             <strong>{product.title}</strong>
             <span>{product.priceFormatted}</span>
-            <button type="button" onClick={() => this.handleAddProduct(product)}>
+            <button
+              type="button"
+              onClick={() => this.handleAddProduct(product)}
+            >
               <div>
                 <MdAddShoppingCart size={16} color="#fff" /> 3
               </div>
@@ -56,8 +53,6 @@ class Home extends Component {
             </button>
           </li>
         ))}
-
-
       </S.ProductList>
     );
   }
@@ -66,4 +61,7 @@ class Home extends Component {
 const mapDispatchToProps = dispatch =>
   bindActionCreators(CartActions, dispatch);
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home);

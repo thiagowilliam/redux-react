@@ -13,20 +13,19 @@ export const Cart = styled(Link)`
   align-items: center;
   text-decoration: none;
   transition: all 0.2s;
-  &:hover{
+  &:hover {
     opacity: 0.7;
   }
-  div{
+  div {
     text-align: right;
     margin-right: 10px;
 
-
-    strong{
+    strong {
       display: block;
       color: #fff;
     }
 
-    span{
+    span {
       font-size: 12px;
       color: #999;
     }
